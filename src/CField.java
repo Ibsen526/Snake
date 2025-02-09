@@ -5,13 +5,11 @@ import javax.swing.JFrame;
 
 public class CField extends JFrame implements KeyListener{
 	private static final long serialVersionUID = 1L;
-	CPanel Panel; 
-	//CPlayer Player;
-	//0 leer, 1 kopf, 2 schwanz, 3 essen
+	CPanel Panel;
+	//0 empty, 1 head, 2 tail, 3 food
 	
 	CField() {
 		Panel = new CPanel();
-		//Player = new CPlayer();
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.add(Panel);
@@ -24,14 +22,11 @@ public class CField extends JFrame implements KeyListener{
 	
 	public static void main(String[] args) {
 		new CField();
-		
-		
 	}
 	
 
 	@Override
 	public void keyPressed(KeyEvent keyEvt) {
-		//System.out.println("druck");
 		
 		if(!Panel.timerStart && keyEvt.getKeyChar() != 'a' && !Panel.lost) {
 			Panel.timer.start();
@@ -52,7 +47,7 @@ public class CField extends JFrame implements KeyListener{
 				Panel.timer.restart();
 		}
 		
-		Panel.Player.moveSnake(keyEvt); //, Panel
+		Panel.Player.moveSnake(keyEvt);
 		
 	}
 
